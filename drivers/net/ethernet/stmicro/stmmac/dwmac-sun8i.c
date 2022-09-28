@@ -746,7 +746,7 @@ static int sun8i_dwmac_reset(struct stmmac_priv *priv)
 				 !(v & 0x01), 100, 500000);
 
 	if (err) {
-		dev_err(priv->device, "EMAC reset timeout [500] \n");
+		dev_err(priv->device, "EMAC reset timeout [ 500 ] \n");
 		return err;
 	}
 	return 0;
@@ -1007,7 +1007,7 @@ static int sun8i_dwmac_set_syscon(struct device *dev,
 		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
 		break;
 	case PHY_INTERFACE_MODE_RMII:
-		reg |= SYSCON_RMII_EN | SYSCON_ETCS_EXT_GMII;
+		reg |= SYSCON_RMII_EN | SYSCON_ETCS_MII;
 		break;
 	default:
 		dev_err(dev, "Unsupported interface mode: %s",
