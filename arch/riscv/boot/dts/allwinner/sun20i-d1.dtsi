@@ -218,6 +218,15 @@
 			};
 
 			/omit-if-no-ref/
+			lcd_rgb666_pins: lcd-rgb666-pins {
+				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
+				       "PD6", "PD7", "PD8", "PD9", "PD10", "PD11",
+				       "PD12", "PD13", "PD14", "PD15", "PD16", "PD17",
+				       "PD18", "PD19", "PD20", "PD21";
+				function = "lcd0";
+			};
+
+			/omit-if-no-ref/
 			mmc0_pins: mmc0-pins {
 				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
 				function = "mmc0";
@@ -284,6 +293,30 @@
 			uart1_pg8_rts_cts_pins: uart1-pg8-rts-cts-pins {
 				pins = "PG8", "PG9";
 				function = "uart1";
+			};
+			
+			/omit-if-no-ref/
+			uart2_pd1_pins: uart2-pd1-pins {
+				pins = "PD1", "PD2";
+				function = "uart2";
+			};
+			
+			/omit-if-no-ref/
+			uart2_pd3_rts_cts_pins: uart2-pd3-rts-cts-pins {
+				pins = "PD3, "PD4";
+				function = "uart2";
+			};
+			
+			/omit-if-no-ref/
+			uart3_pb6_pins: uart3-pb6-pins {
+				pins = "PB6", "PB7";
+				function = "uart3";
+			};
+			
+			/omit-if-no-ref/
+			uart5_pb4_pins: uart5-pb4-pins {
+				pins = "PB4", "PB5";
+				function = "uart5";
 			};
 		};
 
@@ -1418,7 +1451,7 @@
 
 		clint: clint@14000000 {
 			compatible = "allwinner,sun20i-d1-clint",
-				     "sifive,clint0";
+				     "thead,c900-clint";
 			reg = <0x14000000 0xc000>;
 			reg-io-width = <4>;
 			interrupts-extended = <&cpu0_intc 3>,
