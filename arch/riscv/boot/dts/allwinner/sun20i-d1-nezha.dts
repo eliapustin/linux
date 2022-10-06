@@ -91,10 +91,10 @@
 };
 
 &emac {
-	pinctrl-0 = <&rgmii_pe_pins>;
+	pinctrl-0 = <&rmii_pe_pins>;
 	pinctrl-names = "default";
-	phy-handle = <&ext_rgmii_phy>;
-	phy-mode = "rgmii-id";
+	phy-handle = <&ext_rmii_phy>;
+	phy-mode = "rmii";
 	phy-supply = <&reg_vcc_3v3>;
 	status = "okay";
 };
@@ -155,9 +155,10 @@
 };
 
 &mdio {
-	ext_rgmii_phy: ethernet-phy@1 {
+	ext_rmii_phy: ethernet-phy@1 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <1>;
+		reset-gpios = <&gpio 4 16 GPIO_ACTIVE_LOW>; /* PE16 */
 	};
 };
 
