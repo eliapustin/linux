@@ -743,10 +743,10 @@ static int sun8i_dwmac_reset(struct stmmac_priv *priv)
 	 * need more if no cable plugged. 100ms seems OK
 	 */
 	err = readl_poll_timeout(priv->ioaddr + EMAC_BASIC_CTL1, v,
-				 !(v & 0x01), 100, 100000);
+				 !(v & 0x01), 100, 500000);
 
 	if (err) {
-		dev_err(priv->device, "EMAC reset timeout\n");
+		dev_err(priv->device, "EMAC reset timeout [500]\n");
 		return err;
 	}
 	return 0;
